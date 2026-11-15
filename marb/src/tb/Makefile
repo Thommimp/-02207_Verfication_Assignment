@@ -1,3 +1,8 @@
+
+# Needed to convert make list into comma serperated string for cocotb
+empty :=
+space := $(empty) $(empty)
+comma := ,
 # -------------------------------------------------------------------------------
 # NOT COCOTB ARGS
 # -------------------------------------------------------------------------------
@@ -10,9 +15,22 @@ RTL_DIR = $(ROOT_DIR)/../$(RTL_VERSION)
 
 TB_DIR = $(ROOT_DIR)
 
-# ALl test modules, for regression testing
-TB_TEST_PATHS = $(wildcard tests/cl_marb_*_test.py)
-TB_TEST_LIST = $(patsubst tests/%.py, tests.%, $(TB_TEST_PATHS))
+# Define the test directory.
+# The standard make target (see Simulation Targets below) are configured to execute any tests
+# referenced by filename. So if you have $(TEST_DIR)/cl_marb_my_test.py you can
+# run the test by
+#
+#    make cl_marb_my_test
+#
+# Additionaly a regression target is provided where
+#
+#    make regression
+#
+# will run all tests located in $(TEST_DIR)
+
+TEST_DIR = tests
+TEST_PATHS = $(wildcard $(TEST_DIR)/cl_marb_*_test.py)
+TEST_LIST = $(patsubst $(TEST_DIR)/%.py,$(TEST_DIR).%,$(TEST_PATHS))
 
 # because Makefile is in a different directory
 export PYTHONPATH := $(TB_DIR)
@@ -56,8 +74,6 @@ export RTL_VERSION SIM TOPLEVEL_LANG ADDR_WIDTH DATA_WIDTH
 COMPILE_ARGS += -P$(COCOTB_TOPLEVEL).ADDR_WIDTH=$(ADDR_WIDTH)
 COMPILE_ARGS += -P$(COCOTB_TOPLEVEL).DATA_WIDTH=$(DATA_WIDTH)
 
-# COCOTB_TEST_MODULES is the basename of the Python test file
-COCOTB_TEST_MODULES   := tests.cl_marb_basic_test
 
 # Move the results generated inside the sim_build directory
 COCOTB_RESULTS_FILE = $(shell pwd)/$(SIM_BUILD)/results.xml
@@ -78,6 +94,14 @@ endif
 # ------------------------------------------------------------------------------
 # Simulation targets
 # ------------------------------------------------------------------------------
+
+# run test by name, e.g. make cl_marb_basic_test
+%: tests/%.py
+	$(MAKE) COCOTB_TEST_MODULES=$(TEST_DIR).$@ WAVES=1
+
+.PHONY: regression $(COCOTB_RESULTS_FILE)
+regression: COCOTB_TEST_MODULES = $(subst $(space),$(comma),$(TEST_LIST))
+regression: WAVES = 1
 
 
 # -------------------------------------------------------------------------------
@@ -131,7 +155,7 @@ local-debug::
 	@echo -e "\n--------------------------------------\n"
 	@echo DEBUG_MODE = $(DEBUG_MODE)
 
-	@echo TB_TEST_LIST = $(TB_TEST_LIST)
+	@echo TEST_LIST = $(TEST_LIST)
 
 	@echo PYTHONPATH = $(PYTHONPATH)
 	@echo PYTHON_H_HOME = $(PYTHON_H_HOME)
