@@ -12,7 +12,7 @@ CTRL_REG_MODE_MASK   = 0x00000006
 # Control register address
 CTRL_REG_ADDR = 0x0
 
-# Dynamic priority register adress
+# Dynamic priority register address
 DPRIO_REG_ADDR = 0x4
 # Dynamic priority field width
 DPRIO_FIELD_WIDTH = 8
@@ -32,9 +32,9 @@ class cl_marb_tb_virtual_sequencer(uvm_sequencer):
 
         self.reg_model = None
 
+        self.sdt_prod0_agent_sequencer = None
         self.sdt_prod1_agent_sequencer = None
         self.sdt_prod2_agent_sequencer = None
-        self.sdt_prod3_agent_sequencer = None
         self.sdt_cons_agent_sequencer  = None
 
     def build_phase(self):

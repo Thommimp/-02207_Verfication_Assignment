@@ -15,7 +15,7 @@ from cl_marb_tb_env import cl_marb_tb_env
 from uvc import apb
 from uvc.apb import cl_apb_interface
 from uvc.sdt import cl_sdt_interface
-from sat
+
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
 @pyuvm.test()
@@ -51,9 +51,9 @@ class cl_marb_tb_base_test(uvm_test):
         self.marb_tb_env = None
 
         # Interface for SDT
+        self.sdt_prod0_if = None
         self.sdt_prod1_if = None
-        self.sdt_prod2_if = None
-        self.sdt_prod3_if = None
+        self.sdt_prod_if = None
 
         self.sdt_cons_if = None
 
@@ -89,47 +89,62 @@ class cl_marb_tb_base_test(uvm_test):
         )
 
         # Set interfaces in cfg
-        self.cfg.apb_cfg.vif           = self.apb_if
+        self.cfg.apb_cfg.vif = self.apb_if
         self.apb_if.set_width_parameters(
-            ADDR_WIDTH = self.cfg.apb_cfg.ADDR_WIDTH,
-            DATA_WIDTH = self.cfg.apb_cfg.DATA_WIDTH,
+            ADDR_WIDTH=self.cfg.apb_cfg.ADDR_WIDTH,
+            DATA_WIDTH=self.cfg.apb_cfg.DATA_WIDTH,
         )
 
-        #sdt interfaces
-        self.sdt_prod1_if = cl_sdt_interface("sdt_prod1_if")
-        self.sdt_prod2_if = cl_sdt_interface("sdt_prod2_if")
-        self.sdt_prod3_if = cl_sdt_interface("sdt_prod3_if")
+        # sdt interfaces
+        self.sdt_prod0_if = cl_sdt_interface(
+            clk_signal=self.dut.clk,
+            rst_signal=self.dut.rst,
+            name="sdt_prod0_if"
+        )
+        self.sdt_prod1_if = cl_sdt_interface(
+            clk_signal=self.dut.clk,
+            rst_signal=self.dut.rst,
+            name="sdt_prod1_if"
+        )
+        self.sdt_prod2_if = cl_sdt_interface(
+            clk_signal=self.dut.clk,
+            rst_signal=self.dut.rst,
+            name="sdt_prod2_if"
+        )
 
-        self.sdt_cons_if = cl_sdt_interface("sdt_cons_if")
+        self.sdt_cons_if = cl_sdt_interface(
+            clk_signal=self.dut.clk,
+            rst_signal=self.dut.rst,
+            name="sdt_cons_if"
+        )
 
-        #assign virtual interface to sdt's
+        # assign virtual interface to sdts
+        self.cfg.sdt_prod0_if.vif = self.sdt_prod0_if
         self.cfg.sdt_prod1_if.vif = self.sdt_prod1_if
         self.cfg.sdt_prod2_if.vif = self.sdt_prod2_if
-        self.cfg.sdt_prod3_if.vif = self.sdt_prod3_if
 
         self.cfg.sdt_cons_if.vif = self.sdt_cons_if
 
-
-        self.cfg.sdt_prod1_if = cl_sdt_interface(
-            clk_signal = self.dut.clk,
-            rst_signal = self.dut.rst,
+        # Set widths for sdts
+        self.sdt_prod0_if.set_width_values(
+            ADDR_WIDTH=self.cfg.sdt_prod0_cfg.ADDR_WIDTH,
+            DATA_WIDTH=self.cfg.sdt_prod0_cfg.DATA_WIDTH
         )
 
-        self.cfg.sdt_prod2_if = cl_sdt_interface(
-            clk_signal = self.dut.clk,
-            rst_signal = self.dut.rst,
+        self.sdt_prod1_if.set_width_values(
+            ADDR_WIDTH=self.cfg.sdt_prod1_cfg.ADDR_WIDTH,
+            DATA_WIDTH=self.cfg.sdt_prod1_cfg.DATA_WIDTH
         )
 
-        self.cfg.sdt_prod3_if = cl_sdt_interface(
-            clk_signal = self.dut.clk,
-            rst_signal = self.dut.rst,
+        self.sdt_prod2_if.set_width_values(
+            ADDR_WIDTH=self.cfg.sdt_prod2_cfg.ADDR_WIDTH,
+            DATA_WIDTH=self.cfg.sdt_prod2_cfg.DATA_WIDTH
         )
 
-        self.cfg.sdt_cons_if = cl_sdt_interface(
-            clk_signal = self.dut.clk,
-            rst_signal = self.dut.rst,
+        self.sdt_cons_if.set_width_values(
+            ADDR_WIDTH=self.cfg.sdt_cons_cfg.ADDR_WIDTH,
+            DATA_WIDTH=self.cfg.sdt_cons_cfg.DATA_WIDTH
         )
-
 
         # Instantiate environment
         ConfigDB().set(
@@ -150,10 +165,18 @@ class cl_marb_tb_base_test(uvm_test):
         self.logger.info("Start connect_phase() -> MARB base test")
         super().connect_phase()
         
+        self.sdt_prod0_if.connect(
+            rd_signal=self.dut.rd,
+            wr_signal=self.dut.wr,
+            addr_signal=self.dut.address,
+            wr_data_signal=self.dut.wrdata,
+            rd_data_signal=self.dut.rddata,
+            ack_signal=self.dut.ack,
+        )
         self.sdt_prod1_if.connect(
             rd_signal=self.dut.rd,
             wr_signal=self.dut.wr,
-            addr_signal=self.dut.adress,
+            addr_signal=self.dut.address,
             wr_data_signal=self.dut.wrdata,
             rd_data_signal=self.dut.rddata,
             ack_signal=self.dut.ack,
@@ -161,15 +184,7 @@ class cl_marb_tb_base_test(uvm_test):
         self.sdt_prod2_if.connect(
             rd_signal=self.dut.rd,
             wr_signal=self.dut.wr,
-            addr_signal=self.dut.adress,
-            wr_data_signal=self.dut.wrdata,
-            rd_data_signal=self.dut.rddata,
-            ack_signal=self.dut.ack,
-        )
-        self.sdt_prod3_if.connect(
-            rd_signal=self.dut.rd,
-            wr_signal=self.dut.wr,
-            addr_signal=self.dut.adress,
+            addr_signal=self.dut.address,
             wr_data_signal=self.dut.wrdata,
             rd_data_signal=self.dut.rddata,
             ack_signal=self.dut.ack,
@@ -177,7 +192,7 @@ class cl_marb_tb_base_test(uvm_test):
         self.sdt_cons_if.connect(
             rd_signal=self.dut.rd,
             wr_signal=self.dut.wr,
-            addr_signal=self.dut.adress,
+            addr_signal=self.dut.address,
             wr_data_signal=self.dut.wrdata,
             rd_data_signal=self.dut.rddata,
             ack_signal=self.dut.ack,
