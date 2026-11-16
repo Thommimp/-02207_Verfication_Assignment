@@ -109,6 +109,26 @@ class cl_marb_tb_base_test(uvm_test):
         self.cfg.sdt_cons_if.vif = self.sdt_cons_if
 
 
+        self.cfg.sdt_prod1_if = cl_sdt_interface(
+            clk_signal = self.dut.clk,
+            rst_signal = self.dut.rst,
+        )
+
+        self.cfg.sdt_prod2_if = cl_sdt_interface(
+            clk_signal = self.dut.clk,
+            rst_signal = self.dut.rst,
+        )
+
+        self.cfg.sdt_prod3_if = cl_sdt_interface(
+            clk_signal = self.dut.clk,
+            rst_signal = self.dut.rst,
+        )
+
+        self.cfg.sdt_cons_if = cl_sdt_interface(
+            clk_signal = self.dut.clk,
+            rst_signal = self.dut.rst,
+        )
+
 
         # Instantiate environment
         ConfigDB().set(
@@ -128,7 +148,39 @@ class cl_marb_tb_base_test(uvm_test):
     def connect_phase(self):
         self.logger.info("Start connect_phase() -> MARB base test")
         super().connect_phase()
-
+        
+        self.sdt_prod1_if.connect(
+            rd_signal=self.dut.rd,
+            wr_signal=self.dut.wr,
+            addr_signal=self.dut.adress,
+            wr_data_signal=self.dut.wrdata,
+            rd_data_signal=self.dut.rddata,
+            ack_signal=self.dut.ack,
+        )
+        self.sdt_prod2_if.connect(
+            rd_signal=self.dut.rd,
+            wr_signal=self.dut.wr,
+            addr_signal=self.dut.adress,
+            wr_data_signal=self.dut.wrdata,
+            rd_data_signal=self.dut.rddata,
+            ack_signal=self.dut.ack,
+        )
+        self.sdt_prod3_if.connect(
+            rd_signal=self.dut.rd,
+            wr_signal=self.dut.wr,
+            addr_signal=self.dut.adress,
+            wr_data_signal=self.dut.wrdata,
+            rd_data_signal=self.dut.rddata,
+            ack_signal=self.dut.ack,
+        )
+        self.sdt_cons_if.connect(
+            rd_signal=self.dut.rd,
+            wr_signal=self.dut.wr,
+            addr_signal=self.dut.adress,
+            wr_data_signal=self.dut.wrdata,
+            rd_data_signal=self.dut.rddata,
+            ack_signal=self.dut.ack,
+        )
 
         self.apb_if.connect(
             wr_signal     = self.dut.conf_wr,
