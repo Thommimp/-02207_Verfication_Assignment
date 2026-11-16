@@ -14,7 +14,7 @@ from cl_marb_tb_env import cl_marb_tb_env
 
 from uvc import apb
 from uvc.apb import cl_apb_interface
-
+from uvc.sdt import cl_sdt_interface
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
 @pyuvm.test()
@@ -48,6 +48,13 @@ class cl_marb_tb_base_test(uvm_test):
 
         # TB environment handler
         self.marb_tb_env = None
+
+        # Interface for SDT
+        self.sdt_prod1_if = None
+        self.sdt_prod2_if = None
+        self.sdt_prod3_if = None
+
+        self.sdt_cons_if = None
 
         # Quick fix because of warnings og PYVSC
         warnings.simplefilter("ignore")
@@ -86,6 +93,21 @@ class cl_marb_tb_base_test(uvm_test):
             ADDR_WIDTH = self.cfg.apb_cfg.ADDR_WIDTH,
             DATA_WIDTH = self.cfg.apb_cfg.DATA_WIDTH,
         )
+
+        #sdt interfaces
+        self.sdt_prod1_if = cl_sdt_interface("sdt_prod1_if")
+        self.sdt_prod2_if = cl_sdt_interface("sdt_prod2_if")
+        self.sdt_prod3_if = cl_sdt_interface("sdt_prod3_if")
+
+        self.sdt_cons_if = cl_sdt_interface("sdt_cons_if")
+
+        #assign virtual interface to sdt's
+        self.cfg.sdt_prod1_if.vif = self.sdt_prod1_if
+        self.cfg.sdt_prod2_if.vif = self.sdt_prod2_if
+        self.cfg.sdt_prod3_if.vif = self.sdt_prod3_if
+
+        self.cfg.sdt_cons_if.vif = self.sdt_cons_if
+
 
 
         # Instantiate environment
