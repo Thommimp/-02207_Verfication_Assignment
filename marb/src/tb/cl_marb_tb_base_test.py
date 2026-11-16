@@ -15,6 +15,7 @@ from cl_marb_tb_env import cl_marb_tb_env
 from uvc import apb
 from uvc.apb import cl_apb_interface
 from uvc.sdt import cl_sdt_interface
+from sat
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
 @pyuvm.test()
@@ -205,7 +206,8 @@ class cl_marb_tb_base_test(uvm_test):
         await self.trigger_reset()
 
         # Start SDT IF assertions chekers for producers and consumer
-
+        self.virtual_sequence = cl_marb_tb_default_seq.create(name="cl_mark_tb_base_test")
+        await self.virtual_sequence.start(seqr=self.mark_tb_env.virtual_sequencer)
         self.logger.info("End run_phase() -> MARB base test")
 
     async def start_clock(self):
