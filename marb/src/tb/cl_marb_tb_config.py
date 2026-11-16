@@ -9,13 +9,13 @@ class cl_marb_tb_config(uvm_object):
     def __init__(self, name = "cl_marb_tb_config"):
         super().__init__(name)
 
-        self.apb_cfg             = cl_apb_config.create("apb_cfg")
+        self.apb_cfg = cl_apb_config.create("apb_cfg")
 
-        self.sdt_prod0_conf      = cl_sdt_config.create("sdt_prod0_cfg")
-        self.sdt_prod1_conf      = cl_sdt_config.create("sdt_prod1_cfg")
-        self.sdt_prod2_conf      = cl_sdt_config.create("sdt_prod2_cfg")
+        self.sdt_prod0_cfg = cl_sdt_config.create("sdt_prod0_cfg")
+        self.sdt_prod1_cfg = cl_sdt_config.create("sdt_prod1_cfg")
+        self.sdt_prod2_cfg = cl_sdt_config.create("sdt_prod2_cfg")
 
-        self.sdt_cons_conf      = cl_sdt_config.create("sdt_cons_cfg")
+        self.sdt_cons_conf = cl_sdt_config.create("sdt_cons_cfg")
 
         # Configure Producer 0
         self.sdt_prod0_cfg.driver = uvc_ssdt_type_enum.PRODUCER

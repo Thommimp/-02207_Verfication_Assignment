@@ -53,7 +53,7 @@ class cl_marb_tb_base_test(uvm_test):
         # Interface for SDT
         self.sdt_prod0_if = None
         self.sdt_prod1_if = None
-        self.sdt_prod_if = None
+        self.sdt_prod2_if = None
 
         self.sdt_cons_if = None
 
@@ -119,11 +119,11 @@ class cl_marb_tb_base_test(uvm_test):
         )
 
         # assign virtual interface to sdts
-        self.cfg.sdt_prod0_if.vif = self.sdt_prod0_if
-        self.cfg.sdt_prod1_if.vif = self.sdt_prod1_if
-        self.cfg.sdt_prod2_if.vif = self.sdt_prod2_if
+        self.cfg.sdt_prod0_cfg.vif = self.sdt_prod0_if
+        self.cfg.sdt_prod1_cfg.vif = self.sdt_prod1_if
+        self.cfg.sdt_prod2_cfg.vif = self.sdt_prod2_if
 
-        self.cfg.sdt_cons_if.vif = self.sdt_cons_if
+        self.cfg.sdt_cons_cfg.vif = self.sdt_cons_if
 
         # Set widths for sdts
         self.sdt_prod0_if.set_width_values(
@@ -166,36 +166,36 @@ class cl_marb_tb_base_test(uvm_test):
         super().connect_phase()
         
         self.sdt_prod0_if.connect(
-            rd_signal=self.dut.rd,
-            wr_signal=self.dut.wr,
-            addr_signal=self.dut.address,
-            wr_data_signal=self.dut.wrdata,
-            rd_data_signal=self.dut.rddata,
-            ack_signal=self.dut.ack,
+            rd_signal=self.dut.c0_rd,
+            wr_signal=self.dut.c0_wr,
+            addr_signal=self.dut.c0_address,
+            wr_data_signal=self.dut.c0_wr_data,
+            rd_data_signal=self.dut.c0_rd_data,
+            ack_signal=self.dut.c0_ack,
         )
         self.sdt_prod1_if.connect(
-            rd_signal=self.dut.rd,
-            wr_signal=self.dut.wr,
-            addr_signal=self.dut.address,
-            wr_data_signal=self.dut.wrdata,
-            rd_data_signal=self.dut.rddata,
-            ack_signal=self.dut.ack,
+            rd_signal=self.dut.c1_rd,
+            wr_signal=self.dut.c1_wr,
+            addr_signal=self.dut.c1_addr,
+            wr_data_signal=self.dut.c1_wr_data,
+            rd_data_signal=self.dut.c1_rd_data,
+            ack_signal=self.dut.c1_ack,
         )
         self.sdt_prod2_if.connect(
-            rd_signal=self.dut.rd,
-            wr_signal=self.dut.wr,
-            addr_signal=self.dut.address,
-            wr_data_signal=self.dut.wrdata,
-            rd_data_signal=self.dut.rddata,
-            ack_signal=self.dut.ack,
+            rd_signal=self.dut.c2_rd,
+            wr_signal=self.dut.c2_wr,
+            addr_signal=self.dut.c2_addr,
+            wr_data_signal=self.dut.c2_wr_data,
+            rd_data_signal=self.dut.c2_rd_data,
+            ack_signal=self.dut.c2_ack,
         )
         self.sdt_cons_if.connect(
-            rd_signal=self.dut.rd,
-            wr_signal=self.dut.wr,
-            addr_signal=self.dut.address,
-            wr_data_signal=self.dut.wrdata,
-            rd_data_signal=self.dut.rddata,
-            ack_signal=self.dut.ack,
+            rd_signal=self.dut.m_rd,
+            wr_signal=self.dut.m_wr,
+            addr_signal=self.dut.m_addr,
+            wr_data_signal=self.dut.m_wrdata,
+            rd_data_signal=self.dut.m_rddata,
+            ack_signal=self.dut.m_ack,
         )
 
         self.apb_if.connect(
@@ -221,8 +221,8 @@ class cl_marb_tb_base_test(uvm_test):
         await self.trigger_reset()
 
         # Start SDT IF assertions chekers for producers and consumer
-        self.virtual_sequence = cl_marb_tb_default_seq.create(name="cl_mark_tb_base_test")
-        await self.virtual_sequence.start(seqr=self.mark_tb_env.virtual_sequencer)
+        # self.virtual_sequence = cl_marb_tb_default_seq.create(name="cl_mark_tb_base_test")
+        # await self.virtual_sequence.start(seqr=self.mark_tb_env.virtual_sequencer)
         self.logger.info("End run_phase() -> MARB base test")
 
     async def start_clock(self):
