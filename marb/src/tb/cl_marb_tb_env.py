@@ -4,6 +4,7 @@ from pyuvm import ConfigDB, uvm_env
 from cl_marb_tb_reg_model import cl_marb_tb_reg_model
 from cl_marb_tb_virtual_sequencer import cl_marb_tb_virtual_sequencer
 from uvc.apb import cl_apb_agent, if_apb_assert_check
+from uvc.sdt import cl_sdt_agent
 
 
 class cl_marb_tb_env(uvm_env):
@@ -18,7 +19,11 @@ class cl_marb_tb_env(uvm_env):
 
         self.reg_model = None
 
+        self.uvc_sdt_prod0 = None
+        self.uvc_sdt_prod1 = None
+        self.uvc_sdt_prod2 = None
 
+        self.uvc_sdt_cons = None
         self.apb_agent = None
 
     def build_phase(self):
@@ -57,6 +62,42 @@ class cl_marb_tb_env(uvm_env):
             parent = self,
             name = "apb_agent",
         )
+        # --- sdt producers ---
+        # Create the consumer agent using the factory.
+        self.uvc_sdt_prod0 = cl_sdt_agent.create("uvc_sdt_prod0_agent", self)
+        self.uvc_sdt_prod1 = cl_sdt_agent.create("uvc_sdt_prod1_agent", self)
+        self.uvc_sdt_prod2 = cl_sdt_agent.create("uvc_sdt_prod2_agent", self)
+
+        ConfigDB().set(
+            context = self,
+            inst_name = "uvc_sdt_prod0_agent",
+            field_name = "cfg",
+            value = self.cfg.sdt_prod0_cfg,
+        )
+        
+        ConfigDB().set(
+            context = self,
+            inst_name = "uvc_sdt_prod1_agent",
+            field_name = "cfg",
+            value = self.cfg.sdt_prod1_cfg,
+        )
+
+        ConfigDB().set(
+            context = self,
+            inst_name = "uvc_sdt_prod2_agent",
+            field_name = "cfg",
+            value = self.cfg.sdt_prod2_cfg,
+        )
+
+        # --- sdt consumer ---
+        self.uvc_sdt_cons = cl_sdt_agent.create("uvc_sdt_cons_agent", self)
+        
+        ConfigDB().set(
+            context = self,
+            inst_name = "uvc_sdt_cons_agent",
+            field_name = "cfg",
+            value = self.cfg.sdt_cons_cfg,
+        )
 
         # Assertions checkers
 
@@ -75,6 +116,12 @@ class cl_marb_tb_env(uvm_env):
         self.virtual_sequencer.apb_agent_sequencer = self.apb_agent.sequencer
         self.virtual_sequencer.reg_model = self.reg_model
 
+        # connect sdt agents
+        self.virtual_sequencer.sdt_prod0_agent_sequencer = self.uvc_sdt_prod0.sequencer
+        self.virtual_sequencer.sdt_prod1_agent_sequencer = self.uvc_sdt_prod1.sequencer
+        self.virtual_sequencer.sdt_prod2_agent_sequencer = self.uvc_sdt_prod2.sequencer
+
+        self.virtual_sequencer.sdt_cons_agent_sequencer = self.uvc_sdt_cons.sequencer
 
         self.logger.info("End connect_phase() -> MARB env")
 

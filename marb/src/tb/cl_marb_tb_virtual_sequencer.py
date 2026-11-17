@@ -2,6 +2,7 @@ from pyuvm import ConfigDB, uvm_sequencer
 
 from cl_marb_common import MarbMode
 from uvc.apb import OpType, cl_apb_seq_item, cl_apb_single_seq
+from uvc.sdt import cl_sdt_consumer_rsp_seq, cl_sdt_single_seq
 
 # MARB register constants
 
@@ -156,3 +157,4 @@ class cl_marb_tb_virtual_sequencer(uvm_sequencer):
         await apb_seq.start(self.apb_agent_sequencer)
         apb_rsp = await apb_seq.get_response()
         return apb_rsp.data
+

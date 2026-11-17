@@ -1,0 +1,10 @@
+# Python and pytest caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local Python virtual environment
+.venv/
+
+# cocotb simulation output, including waveforms and test results
+/marb/src/tb/sim_build/
