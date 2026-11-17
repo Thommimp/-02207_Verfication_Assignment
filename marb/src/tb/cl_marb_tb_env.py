@@ -1,4 +1,5 @@
 import cocotb
+from cocotb.queue import Queue
 from pyuvm import ConfigDB, uvm_env
 
 from cl_marb_tb_reg_model import cl_marb_tb_reg_model
@@ -22,6 +23,18 @@ class cl_marb_tb_env(uvm_env):
         self.uvc_sdt_prod0 = None
         self.uvc_sdt_prod1 = None
         self.uvc_sdt_prod2 = None
+        
+        self.prod0_rd_data_queue = None
+        self.prod0_wr_data_queue = None
+        self.prod1_rd_data_queue = None
+        self.prod1_wr_data_queue = None
+        self.prod2_rd_data_queue = None
+        self.prod2_wr_data_queue = None
+        
+        self.cons_rd_data_queue = None
+        self.cons_wr_data_queue = None
+        
+
 
         self.uvc_sdt_cons = None
         self.apb_agent = None
@@ -62,6 +75,15 @@ class cl_marb_tb_env(uvm_env):
             parent = self,
             name = "apb_agent",
         )
+
+        # producer quees
+        self.prod0_rd_data_queue = Queue()
+        self.prod0_wr_data_queue = Queue()
+        self.prod1_rd_data_queue = Queue()
+        self.prod1_wr_data_queue = Queue()
+        self.prod2_rd_data_queue = Queue()
+        self.prod2_wr_data_queue = Queue()
+
         # --- sdt producers ---
         # Create the consumer agent using the factory.
         self.uvc_sdt_prod0 = cl_sdt_agent.create("uvc_sdt_prod0_agent", self)
@@ -74,12 +96,40 @@ class cl_marb_tb_env(uvm_env):
             field_name = "cfg",
             value = self.cfg.sdt_prod0_cfg,
         )
-        
+
+        ConfigDB().set(
+            context=self,
+            inst_name="uvc_sdt_prod0_agent.driver",
+            field_name="rd_data_queue",
+            value=self.prod0_rd_data_queue,
+        )
+
+        ConfigDB().set(
+            context=self,
+            inst_name="uvc_sdt_prod0_agent.driver",
+            field_name="wr_data_queue",
+            value=self.prod0_wr_data_queue,
+        )
+
         ConfigDB().set(
             context = self,
             inst_name = "uvc_sdt_prod1_agent",
             field_name = "cfg",
             value = self.cfg.sdt_prod1_cfg,
+        )
+
+        ConfigDB().set(
+            context=self,
+            inst_name="uvc_sdt_prod1_agent.driver",
+            field_name="rd_data_queue",
+            value=self.prod1_rd_data_queue,
+        )
+
+        ConfigDB().set(
+            context=self,
+            inst_name="uvc_sdt_prod1_agent.driver",
+            field_name="wr_data_queue",
+            value=self.prod1_wr_data_queue,
         )
 
         ConfigDB().set(
@@ -89,7 +139,23 @@ class cl_marb_tb_env(uvm_env):
             value = self.cfg.sdt_prod2_cfg,
         )
 
+        ConfigDB().set(
+            context=self,
+            inst_name="uvc_sdt_prod2_agent.driver",
+            field_name="rd_data_queue",
+            value=self.prod2_rd_data_queue,
+        )
+
+        ConfigDB().set(
+            context=self,
+            inst_name="uvc_sdt_prod2_agent.driver",
+            field_name="wr_data_queue",
+            value=self.prod2_wr_data_queue,
+        )
+
         # --- sdt consumer ---
+        self.cons_rd_data_queue = Queue()
+        self.cons_wr_data_queue = Queue()
         self.uvc_sdt_cons = cl_sdt_agent.create("uvc_sdt_cons_agent", self)
         
         ConfigDB().set(
@@ -97,6 +163,20 @@ class cl_marb_tb_env(uvm_env):
             inst_name = "uvc_sdt_cons_agent",
             field_name = "cfg",
             value = self.cfg.sdt_cons_cfg,
+        )
+
+        ConfigDB().set(
+            context = self,
+            inst_name = "uvc_sdt_cons_agent.driver",
+            field_name = "rd_data_queue",
+            value = self.cons_rd_data_queue,
+        )
+
+        ConfigDB().set(
+            context = self,
+            inst_name = "uvc_sdt_cons_agent.driver",
+            field_name = "wr_data_queue",
+            value = self.cons_wr_data_queue, 
         )
 
         # Assertions checkers
