@@ -1,0 +1,657 @@
+Coverage report for cl_marb_tb_basic_test #0 
+------------------------------------------------
+ 
+TYPE covergroup_trans_kind : 28.75%
+    CVP trans_op : 50.00%
+    Bins:
+        RD : 0
+        WR : 5
+    CVP trans_slverr : 50.00%
+    Bins:
+        NO_ERROR : 5
+        ERROR : 0
+    CVP trans_addr : 12.50%
+    Bins:
+        trans_addr[0] : 5
+        trans_addr[1] : 0
+        trans_addr[2] : 0
+        trans_addr[3] : 0
+        trans_addr[4] : 0
+        trans_addr[5] : 0
+        trans_addr[6] : 0
+        trans_addr[7] : 0
+    CROSS cross_op_addr : 6.25%
+    Bins:
+        <RD,trans_addr[0]> : 0
+        <RD,trans_addr[1]> : 0
+        <RD,trans_addr[2]> : 0
+        <RD,trans_addr[3]> : 0
+        <RD,trans_addr[4]> : 0
+        <RD,trans_addr[5]> : 0
+        <RD,trans_addr[6]> : 0
+        <RD,trans_addr[7]> : 0
+        <WR,trans_addr[0]> : 5
+        <WR,trans_addr[1]> : 0
+        <WR,trans_addr[2]> : 0
+        <WR,trans_addr[3]> : 0
+        <WR,trans_addr[4]> : 0
+        <WR,trans_addr[5]> : 0
+        <WR,trans_addr[6]> : 0
+        <WR,trans_addr[7]> : 0
+    CROSS cross_op_slverr : 25.00%
+    Bins:
+        <RD,NO_ERROR> : 0
+        <RD,ERROR> : 0
+        <WR,NO_ERROR> : 5
+        <WR,ERROR> : 0
+    INST uvm_test_top.marb_tb_env.apb_agent.coverage.cg_trans_kind : 28.75%
+        CVP trans_op : 50.00%
+        Bins:
+            RD : 0
+            WR : 5
+        CVP trans_slverr : 50.00%
+        Bins:
+            NO_ERROR : 5
+            ERROR : 0
+        CVP trans_addr : 12.50%
+        Bins:
+            trans_addr[0] : 5
+            trans_addr[1] : 0
+            trans_addr[2] : 0
+            trans_addr[3] : 0
+            trans_addr[4] : 0
+            trans_addr[5] : 0
+            trans_addr[6] : 0
+            trans_addr[7] : 0
+        CROSS cross_op_addr : 6.25%
+        Bins:
+            <RD,trans_addr[0]> : 0
+            <RD,trans_addr[1]> : 0
+            <RD,trans_addr[2]> : 0
+            <RD,trans_addr[3]> : 0
+            <RD,trans_addr[4]> : 0
+            <RD,trans_addr[5]> : 0
+            <RD,trans_addr[6]> : 0
+            <RD,trans_addr[7]> : 0
+            <WR,trans_addr[0]> : 5
+            <WR,trans_addr[1]> : 0
+            <WR,trans_addr[2]> : 0
+            <WR,trans_addr[3]> : 0
+            <WR,trans_addr[4]> : 0
+            <WR,trans_addr[5]> : 0
+            <WR,trans_addr[6]> : 0
+            <WR,trans_addr[7]> : 0
+        CROSS cross_op_slverr : 25.00%
+        Bins:
+            <RD,NO_ERROR> : 0
+            <RD,ERROR> : 0
+            <WR,NO_ERROR> : 5
+            <WR,ERROR> : 0
+TYPE covergroup_trans_data : 69.34%
+    CVP trans_bitno : 100.00%
+    Bins:
+        trans_bitno[0] : 5
+        trans_bitno[1] : 5
+        trans_bitno[2] : 5
+        trans_bitno[3] : 5
+        trans_bitno[4] : 5
+        trans_bitno[5] : 5
+        trans_bitno[6] : 5
+        trans_bitno[7] : 5
+        trans_bitno[8] : 5
+        trans_bitno[9] : 5
+        trans_bitno[10] : 5
+        trans_bitno[11] : 5
+        trans_bitno[12] : 5
+        trans_bitno[13] : 5
+        trans_bitno[14] : 5
+        trans_bitno[15] : 5
+        trans_bitno[16] : 5
+        trans_bitno[17] : 5
+        trans_bitno[18] : 5
+        trans_bitno[19] : 5
+        trans_bitno[20] : 5
+        trans_bitno[21] : 5
+        trans_bitno[22] : 5
+        trans_bitno[23] : 5
+        trans_bitno[24] : 5
+        trans_bitno[25] : 5
+        trans_bitno[26] : 5
+        trans_bitno[27] : 5
+        trans_bitno[28] : 5
+        trans_bitno[29] : 5
+        trans_bitno[30] : 5
+        trans_bitno[31] : 5
+    CVP trans_data : 100.00%
+    Bins:
+        ZERO : 155
+        ONE : 5
+    CVP trans_data_type : 50.00%
+    Bins:
+        RD : 0
+        WR : 160
+    CROSS cross_data_bits_type : 27.34%
+    Bins:
+        <trans_bitno[0],RD,ZERO> : 0
+        <trans_bitno[0],RD,ONE> : 0
+        <trans_bitno[0],WR,ZERO> : 3
+        <trans_bitno[0],WR,ONE> : 2
+        <trans_bitno[1],RD,ZERO> : 0
+        <trans_bitno[1],RD,ONE> : 0
+        <trans_bitno[1],WR,ZERO> : 3
+        <trans_bitno[1],WR,ONE> : 2
+        <trans_bitno[2],RD,ZERO> : 0
+        <trans_bitno[2],RD,ONE> : 0
+        <trans_bitno[2],WR,ZERO> : 5
+        <trans_bitno[2],WR,ONE> : 0
+        <trans_bitno[3],RD,ZERO> : 0
+        <trans_bitno[3],RD,ONE> : 0
+        <trans_bitno[3],WR,ZERO> : 5
+        <trans_bitno[3],WR,ONE> : 0
+        <trans_bitno[4],RD,ZERO> : 0
+        <trans_bitno[4],RD,ONE> : 0
+        <trans_bitno[4],WR,ZERO> : 4
+        <trans_bitno[4],WR,ONE> : 1
+        <trans_bitno[5],RD,ZERO> : 0
+        <trans_bitno[5],RD,ONE> : 0
+        <trans_bitno[5],WR,ZERO> : 5
+        <trans_bitno[5],WR,ONE> : 0
+        <trans_bitno[6],RD,ZERO> : 0
+        <trans_bitno[6],RD,ONE> : 0
+        <trans_bitno[6],WR,ZERO> : 5
+        <trans_bitno[6],WR,ONE> : 0
+        <trans_bitno[7],RD,ZERO> : 0
+        <trans_bitno[7],RD,ONE> : 0
+        <trans_bitno[7],WR,ZERO> : 5
+        <trans_bitno[7],WR,ONE> : 0
+        <trans_bitno[8],RD,ZERO> : 0
+        <trans_bitno[8],RD,ONE> : 0
+        <trans_bitno[8],WR,ZERO> : 5
+        <trans_bitno[8],WR,ONE> : 0
+        <trans_bitno[9],RD,ZERO> : 0
+        <trans_bitno[9],RD,ONE> : 0
+        <trans_bitno[9],WR,ZERO> : 5
+        <trans_bitno[9],WR,ONE> : 0
+        <trans_bitno[10],RD,ZERO> : 0
+        <trans_bitno[10],RD,ONE> : 0
+        <trans_bitno[10],WR,ZERO> : 5
+        <trans_bitno[10],WR,ONE> : 0
+        <trans_bitno[11],RD,ZERO> : 0
+        <trans_bitno[11],RD,ONE> : 0
+        <trans_bitno[11],WR,ZERO> : 5
+        <trans_bitno[11],WR,ONE> : 0
+        <trans_bitno[12],RD,ZERO> : 0
+        <trans_bitno[12],RD,ONE> : 0
+        <trans_bitno[12],WR,ZERO> : 5
+        <trans_bitno[12],WR,ONE> : 0
+        <trans_bitno[13],RD,ZERO> : 0
+        <trans_bitno[13],RD,ONE> : 0
+        <trans_bitno[13],WR,ZERO> : 5
+        <trans_bitno[13],WR,ONE> : 0
+        <trans_bitno[14],RD,ZERO> : 0
+        <trans_bitno[14],RD,ONE> : 0
+        <trans_bitno[14],WR,ZERO> : 5
+        <trans_bitno[14],WR,ONE> : 0
+        <trans_bitno[15],RD,ZERO> : 0
+        <trans_bitno[15],RD,ONE> : 0
+        <trans_bitno[15],WR,ZERO> : 5
+        <trans_bitno[15],WR,ONE> : 0
+        <trans_bitno[16],RD,ZERO> : 0
+        <trans_bitno[16],RD,ONE> : 0
+        <trans_bitno[16],WR,ZERO> : 5
+        <trans_bitno[16],WR,ONE> : 0
+        <trans_bitno[17],RD,ZERO> : 0
+        <trans_bitno[17],RD,ONE> : 0
+        <trans_bitno[17],WR,ZERO> : 5
+        <trans_bitno[17],WR,ONE> : 0
+        <trans_bitno[18],RD,ZERO> : 0
+        <trans_bitno[18],RD,ONE> : 0
+        <trans_bitno[18],WR,ZERO> : 5
+        <trans_bitno[18],WR,ONE> : 0
+        <trans_bitno[19],RD,ZERO> : 0
+        <trans_bitno[19],RD,ONE> : 0
+        <trans_bitno[19],WR,ZERO> : 5
+        <trans_bitno[19],WR,ONE> : 0
+        <trans_bitno[20],RD,ZERO> : 0
+        <trans_bitno[20],RD,ONE> : 0
+        <trans_bitno[20],WR,ZERO> : 5
+        <trans_bitno[20],WR,ONE> : 0
+        <trans_bitno[21],RD,ZERO> : 0
+        <trans_bitno[21],RD,ONE> : 0
+        <trans_bitno[21],WR,ZERO> : 5
+        <trans_bitno[21],WR,ONE> : 0
+        <trans_bitno[22],RD,ZERO> : 0
+        <trans_bitno[22],RD,ONE> : 0
+        <trans_bitno[22],WR,ZERO> : 5
+        <trans_bitno[22],WR,ONE> : 0
+        <trans_bitno[23],RD,ZERO> : 0
+        <trans_bitno[23],RD,ONE> : 0
+        <trans_bitno[23],WR,ZERO> : 5
+        <trans_bitno[23],WR,ONE> : 0
+        <trans_bitno[24],RD,ZERO> : 0
+        <trans_bitno[24],RD,ONE> : 0
+        <trans_bitno[24],WR,ZERO> : 5
+        <trans_bitno[24],WR,ONE> : 0
+        <trans_bitno[25],RD,ZERO> : 0
+        <trans_bitno[25],RD,ONE> : 0
+        <trans_bitno[25],WR,ZERO> : 5
+        <trans_bitno[25],WR,ONE> : 0
+        <trans_bitno[26],RD,ZERO> : 0
+        <trans_bitno[26],RD,ONE> : 0
+        <trans_bitno[26],WR,ZERO> : 5
+        <trans_bitno[26],WR,ONE> : 0
+        <trans_bitno[27],RD,ZERO> : 0
+        <trans_bitno[27],RD,ONE> : 0
+        <trans_bitno[27],WR,ZERO> : 5
+        <trans_bitno[27],WR,ONE> : 0
+        <trans_bitno[28],RD,ZERO> : 0
+        <trans_bitno[28],RD,ONE> : 0
+        <trans_bitno[28],WR,ZERO> : 5
+        <trans_bitno[28],WR,ONE> : 0
+        <trans_bitno[29],RD,ZERO> : 0
+        <trans_bitno[29],RD,ONE> : 0
+        <trans_bitno[29],WR,ZERO> : 5
+        <trans_bitno[29],WR,ONE> : 0
+        <trans_bitno[30],RD,ZERO> : 0
+        <trans_bitno[30],RD,ONE> : 0
+        <trans_bitno[30],WR,ZERO> : 5
+        <trans_bitno[30],WR,ONE> : 0
+        <trans_bitno[31],RD,ZERO> : 0
+        <trans_bitno[31],RD,ONE> : 0
+        <trans_bitno[31],WR,ZERO> : 5
+        <trans_bitno[31],WR,ONE> : 0
+    INST uvm_test_top.marb_tb_env.apb_agent.coverage.cg_trans_data : 69.34%
+        CVP trans_bitno : 100.00%
+        Bins:
+            trans_bitno[0] : 5
+            trans_bitno[1] : 5
+            trans_bitno[2] : 5
+            trans_bitno[3] : 5
+            trans_bitno[4] : 5
+            trans_bitno[5] : 5
+            trans_bitno[6] : 5
+            trans_bitno[7] : 5
+            trans_bitno[8] : 5
+            trans_bitno[9] : 5
+            trans_bitno[10] : 5
+            trans_bitno[11] : 5
+            trans_bitno[12] : 5
+            trans_bitno[13] : 5
+            trans_bitno[14] : 5
+            trans_bitno[15] : 5
+            trans_bitno[16] : 5
+            trans_bitno[17] : 5
+            trans_bitno[18] : 5
+            trans_bitno[19] : 5
+            trans_bitno[20] : 5
+            trans_bitno[21] : 5
+            trans_bitno[22] : 5
+            trans_bitno[23] : 5
+            trans_bitno[24] : 5
+            trans_bitno[25] : 5
+            trans_bitno[26] : 5
+            trans_bitno[27] : 5
+            trans_bitno[28] : 5
+            trans_bitno[29] : 5
+            trans_bitno[30] : 5
+            trans_bitno[31] : 5
+        CVP trans_data : 100.00%
+        Bins:
+            ZERO : 155
+            ONE : 5
+        CVP trans_data_type : 50.00%
+        Bins:
+            RD : 0
+            WR : 160
+        CROSS cross_data_bits_type : 27.34%
+        Bins:
+            <trans_bitno[0],RD,ZERO> : 0
+            <trans_bitno[0],RD,ONE> : 0
+            <trans_bitno[0],WR,ZERO> : 3
+            <trans_bitno[0],WR,ONE> : 2
+            <trans_bitno[1],RD,ZERO> : 0
+            <trans_bitno[1],RD,ONE> : 0
+            <trans_bitno[1],WR,ZERO> : 3
+            <trans_bitno[1],WR,ONE> : 2
+            <trans_bitno[2],RD,ZERO> : 0
+            <trans_bitno[2],RD,ONE> : 0
+            <trans_bitno[2],WR,ZERO> : 5
+            <trans_bitno[2],WR,ONE> : 0
+            <trans_bitno[3],RD,ZERO> : 0
+            <trans_bitno[3],RD,ONE> : 0
+            <trans_bitno[3],WR,ZERO> : 5
+            <trans_bitno[3],WR,ONE> : 0
+            <trans_bitno[4],RD,ZERO> : 0
+            <trans_bitno[4],RD,ONE> : 0
+            <trans_bitno[4],WR,ZERO> : 4
+            <trans_bitno[4],WR,ONE> : 1
+            <trans_bitno[5],RD,ZERO> : 0
+            <trans_bitno[5],RD,ONE> : 0
+            <trans_bitno[5],WR,ZERO> : 5
+            <trans_bitno[5],WR,ONE> : 0
+            <trans_bitno[6],RD,ZERO> : 0
+            <trans_bitno[6],RD,ONE> : 0
+            <trans_bitno[6],WR,ZERO> : 5
+            <trans_bitno[6],WR,ONE> : 0
+            <trans_bitno[7],RD,ZERO> : 0
+            <trans_bitno[7],RD,ONE> : 0
+            <trans_bitno[7],WR,ZERO> : 5
+            <trans_bitno[7],WR,ONE> : 0
+            <trans_bitno[8],RD,ZERO> : 0
+            <trans_bitno[8],RD,ONE> : 0
+            <trans_bitno[8],WR,ZERO> : 5
+            <trans_bitno[8],WR,ONE> : 0
+            <trans_bitno[9],RD,ZERO> : 0
+            <trans_bitno[9],RD,ONE> : 0
+            <trans_bitno[9],WR,ZERO> : 5
+            <trans_bitno[9],WR,ONE> : 0
+            <trans_bitno[10],RD,ZERO> : 0
+            <trans_bitno[10],RD,ONE> : 0
+            <trans_bitno[10],WR,ZERO> : 5
+            <trans_bitno[10],WR,ONE> : 0
+            <trans_bitno[11],RD,ZERO> : 0
+            <trans_bitno[11],RD,ONE> : 0
+            <trans_bitno[11],WR,ZERO> : 5
+            <trans_bitno[11],WR,ONE> : 0
+            <trans_bitno[12],RD,ZERO> : 0
+            <trans_bitno[12],RD,ONE> : 0
+            <trans_bitno[12],WR,ZERO> : 5
+            <trans_bitno[12],WR,ONE> : 0
+            <trans_bitno[13],RD,ZERO> : 0
+            <trans_bitno[13],RD,ONE> : 0
+            <trans_bitno[13],WR,ZERO> : 5
+            <trans_bitno[13],WR,ONE> : 0
+            <trans_bitno[14],RD,ZERO> : 0
+            <trans_bitno[14],RD,ONE> : 0
+            <trans_bitno[14],WR,ZERO> : 5
+            <trans_bitno[14],WR,ONE> : 0
+            <trans_bitno[15],RD,ZERO> : 0
+            <trans_bitno[15],RD,ONE> : 0
+            <trans_bitno[15],WR,ZERO> : 5
+            <trans_bitno[15],WR,ONE> : 0
+            <trans_bitno[16],RD,ZERO> : 0
+            <trans_bitno[16],RD,ONE> : 0
+            <trans_bitno[16],WR,ZERO> : 5
+            <trans_bitno[16],WR,ONE> : 0
+            <trans_bitno[17],RD,ZERO> : 0
+            <trans_bitno[17],RD,ONE> : 0
+            <trans_bitno[17],WR,ZERO> : 5
+            <trans_bitno[17],WR,ONE> : 0
+            <trans_bitno[18],RD,ZERO> : 0
+            <trans_bitno[18],RD,ONE> : 0
+            <trans_bitno[18],WR,ZERO> : 5
+            <trans_bitno[18],WR,ONE> : 0
+            <trans_bitno[19],RD,ZERO> : 0
+            <trans_bitno[19],RD,ONE> : 0
+            <trans_bitno[19],WR,ZERO> : 5
+            <trans_bitno[19],WR,ONE> : 0
+            <trans_bitno[20],RD,ZERO> : 0
+            <trans_bitno[20],RD,ONE> : 0
+            <trans_bitno[20],WR,ZERO> : 5
+            <trans_bitno[20],WR,ONE> : 0
+            <trans_bitno[21],RD,ZERO> : 0
+            <trans_bitno[21],RD,ONE> : 0
+            <trans_bitno[21],WR,ZERO> : 5
+            <trans_bitno[21],WR,ONE> : 0
+            <trans_bitno[22],RD,ZERO> : 0
+            <trans_bitno[22],RD,ONE> : 0
+            <trans_bitno[22],WR,ZERO> : 5
+            <trans_bitno[22],WR,ONE> : 0
+            <trans_bitno[23],RD,ZERO> : 0
+            <trans_bitno[23],RD,ONE> : 0
+            <trans_bitno[23],WR,ZERO> : 5
+            <trans_bitno[23],WR,ONE> : 0
+            <trans_bitno[24],RD,ZERO> : 0
+            <trans_bitno[24],RD,ONE> : 0
+            <trans_bitno[24],WR,ZERO> : 5
+            <trans_bitno[24],WR,ONE> : 0
+            <trans_bitno[25],RD,ZERO> : 0
+            <trans_bitno[25],RD,ONE> : 0
+            <trans_bitno[25],WR,ZERO> : 5
+            <trans_bitno[25],WR,ONE> : 0
+            <trans_bitno[26],RD,ZERO> : 0
+            <trans_bitno[26],RD,ONE> : 0
+            <trans_bitno[26],WR,ZERO> : 5
+            <trans_bitno[26],WR,ONE> : 0
+            <trans_bitno[27],RD,ZERO> : 0
+            <trans_bitno[27],RD,ONE> : 0
+            <trans_bitno[27],WR,ZERO> : 5
+            <trans_bitno[27],WR,ONE> : 0
+            <trans_bitno[28],RD,ZERO> : 0
+            <trans_bitno[28],RD,ONE> : 0
+            <trans_bitno[28],WR,ZERO> : 5
+            <trans_bitno[28],WR,ONE> : 0
+            <trans_bitno[29],RD,ZERO> : 0
+            <trans_bitno[29],RD,ONE> : 0
+            <trans_bitno[29],WR,ZERO> : 5
+            <trans_bitno[29],WR,ONE> : 0
+            <trans_bitno[30],RD,ZERO> : 0
+            <trans_bitno[30],RD,ONE> : 0
+            <trans_bitno[30],WR,ZERO> : 5
+            <trans_bitno[30],WR,ONE> : 0
+            <trans_bitno[31],RD,ZERO> : 0
+            <trans_bitno[31],RD,ONE> : 0
+            <trans_bitno[31],WR,ZERO> : 5
+            <trans_bitno[31],WR,ONE> : 0
+TYPE covergroup_fulltrans : 30.56%
+    CVP fulltrans_access : 50.00%
+    Bins:
+        RD : 0
+        WR : 12
+    CVP fulltrans_addr : 33.33%
+    Bins:
+        low : 12
+        med : 0
+        high : 0
+    CVP fulltrans_data : 33.33%
+    Bins:
+        low : 12
+        med : 0
+        high : 0
+    CROSS fulltrans_cross : 5.56%
+    Bins:
+        <RD,low,low> : 0
+        <RD,low,med> : 0
+        <RD,low,high> : 0
+        <RD,med,low> : 0
+        <RD,med,med> : 0
+        <RD,med,high> : 0
+        <RD,high,low> : 0
+        <RD,high,med> : 0
+        <RD,high,high> : 0
+        <WR,low,low> : 12
+        <WR,low,med> : 0
+        <WR,low,high> : 0
+        <WR,med,low> : 0
+        <WR,med,med> : 0
+        <WR,med,high> : 0
+        <WR,high,low> : 0
+        <WR,high,med> : 0
+        <WR,high,high> : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_prod0_agent.coverage.cg_fulltrans : 30.56%
+        CVP fulltrans_access : 50.00%
+        Bins:
+            RD : 0
+            WR : 2
+        CVP fulltrans_addr : 33.33%
+        Bins:
+            low : 2
+            med : 0
+            high : 0
+        CVP fulltrans_data : 33.33%
+        Bins:
+            low : 2
+            med : 0
+            high : 0
+        CROSS fulltrans_cross : 5.56%
+        Bins:
+            <RD,low,low> : 0
+            <RD,low,med> : 0
+            <RD,low,high> : 0
+            <RD,med,low> : 0
+            <RD,med,med> : 0
+            <RD,med,high> : 0
+            <RD,high,low> : 0
+            <RD,high,med> : 0
+            <RD,high,high> : 0
+            <WR,low,low> : 2
+            <WR,low,med> : 0
+            <WR,low,high> : 0
+            <WR,med,low> : 0
+            <WR,med,med> : 0
+            <WR,med,high> : 0
+            <WR,high,low> : 0
+            <WR,high,med> : 0
+            <WR,high,high> : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_prod1_agent.coverage.cg_fulltrans : 30.56%
+        CVP fulltrans_access : 50.00%
+        Bins:
+            RD : 0
+            WR : 2
+        CVP fulltrans_addr : 33.33%
+        Bins:
+            low : 2
+            med : 0
+            high : 0
+        CVP fulltrans_data : 33.33%
+        Bins:
+            low : 2
+            med : 0
+            high : 0
+        CROSS fulltrans_cross : 5.56%
+        Bins:
+            <RD,low,low> : 0
+            <RD,low,med> : 0
+            <RD,low,high> : 0
+            <RD,med,low> : 0
+            <RD,med,med> : 0
+            <RD,med,high> : 0
+            <RD,high,low> : 0
+            <RD,high,med> : 0
+            <RD,high,high> : 0
+            <WR,low,low> : 2
+            <WR,low,med> : 0
+            <WR,low,high> : 0
+            <WR,med,low> : 0
+            <WR,med,med> : 0
+            <WR,med,high> : 0
+            <WR,high,low> : 0
+            <WR,high,med> : 0
+            <WR,high,high> : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_prod2_agent.coverage.cg_fulltrans : 30.56%
+        CVP fulltrans_access : 50.00%
+        Bins:
+            RD : 0
+            WR : 2
+        CVP fulltrans_addr : 33.33%
+        Bins:
+            low : 2
+            med : 0
+            high : 0
+        CVP fulltrans_data : 33.33%
+        Bins:
+            low : 2
+            med : 0
+            high : 0
+        CROSS fulltrans_cross : 5.56%
+        Bins:
+            <RD,low,low> : 0
+            <RD,low,med> : 0
+            <RD,low,high> : 0
+            <RD,med,low> : 0
+            <RD,med,med> : 0
+            <RD,med,high> : 0
+            <RD,high,low> : 0
+            <RD,high,med> : 0
+            <RD,high,high> : 0
+            <WR,low,low> : 2
+            <WR,low,med> : 0
+            <WR,low,high> : 0
+            <WR,med,low> : 0
+            <WR,med,med> : 0
+            <WR,med,high> : 0
+            <WR,high,low> : 0
+            <WR,high,med> : 0
+            <WR,high,high> : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_cons_agent.coverage.cg_fulltrans : 30.56%
+        CVP fulltrans_access : 50.00%
+        Bins:
+            RD : 0
+            WR : 6
+        CVP fulltrans_addr : 33.33%
+        Bins:
+            low : 6
+            med : 0
+            high : 0
+        CVP fulltrans_data : 33.33%
+        Bins:
+            low : 6
+            med : 0
+            high : 0
+        CROSS fulltrans_cross : 5.56%
+        Bins:
+            <RD,low,low> : 0
+            <RD,low,med> : 0
+            <RD,low,high> : 0
+            <RD,med,low> : 0
+            <RD,med,med> : 0
+            <RD,med,high> : 0
+            <RD,high,low> : 0
+            <RD,high,med> : 0
+            <RD,high,high> : 0
+            <WR,low,low> : 6
+            <WR,low,med> : 0
+            <WR,low,high> : 0
+            <WR,med,low> : 0
+            <WR,med,med> : 0
+            <WR,med,high> : 0
+            <WR,high,low> : 0
+            <WR,high,med> : 0
+            <WR,high,high> : 0
+TYPE covergroup_delays : 50.00%
+    CVP consumer_delay_rdwr1_ack1 : 50.00%
+    Bins:
+        0 : 0
+        [1,5] : 6
+        [6,15] : 6
+        >15 : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_prod0_agent.coverage.cg_delays : 25.00%
+        CVP consumer_delay_rdwr1_ack1 : 25.00%
+        Bins:
+            0 : 0
+            [1,5] : 0
+            [6,15] : 2
+            >15 : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_prod1_agent.coverage.cg_delays : 25.00%
+        CVP consumer_delay_rdwr1_ack1 : 25.00%
+        Bins:
+            0 : 0
+            [1,5] : 0
+            [6,15] : 2
+            >15 : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_prod2_agent.coverage.cg_delays : 25.00%
+        CVP consumer_delay_rdwr1_ack1 : 25.00%
+        Bins:
+            0 : 0
+            [1,5] : 0
+            [6,15] : 2
+            >15 : 0
+    INST uvm_test_top.marb_tb_env.uvc_sdt_cons_agent.coverage.cg_delays : 25.00%
+        CVP consumer_delay_rdwr1_ack1 : 25.00%
+        Bins:
+            0 : 0
+            [1,5] : 6
+            [6,15] : 0
+            >15 : 0
+TYPE covergroup_ssdt : 33.33%
+    CVP cp_data : 33.33%
+    Bins:
+        data_0 : 0
+        data_max : 0
+        data_others : 6
+    INST uvm_test_top.marb_tb_env.uvc_ssdt_agent.coverage.cg_ssdt : 33.33%
+        CVP cp_data : 33.33%
+        Bins:
+            data_0 : 0
+            data_max : 0
+            data_others : 6

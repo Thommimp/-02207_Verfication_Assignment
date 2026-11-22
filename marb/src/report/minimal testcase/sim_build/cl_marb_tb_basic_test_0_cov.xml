@@ -1,0 +1,1582 @@
+<UCIS xmlns:ucis="http://www.w3.org/2001/XMLSchema-instance" writtenBy="rohit-docker" writtenTime="2026-11-22T00:00:00" ucisVersion="1.0">
+  <sourceFiles fileName="__null__file__" id="1"/>
+  <sourceFiles fileName="&lt;unknown&gt;" id="2"/>
+  <sourceFiles fileName="/home/rohit-docker/Assignment_02207_Verfication/marb/src/tb/uvc/apb/cl_apb_coverage.py" id="3"/>
+  <sourceFiles fileName="/home/rohit-docker/Assignment_02207_Verfication/marb/src/tb/uvc/sdt/cl_sdt_coverage.py" id="4"/>
+  <sourceFiles fileName="/home/rohit-docker/Assignment_02207_Verfication/marb/src/tb/uvc/ssdt/cl_ssdt_coverage.py" id="5"/>
+  <historyNodes historyNodeId="0" logicalName="logicalName" physicalName="foo.ucis" kind="1" testStatus="true" simtime="0.0" timeunit="ns" runCwd="." cpuTime="0.0" seed="0" cmd="" args="" compulsory="0" date="2026-11-22T15:10:18" userName="user" cost="0.0" toolCategory="UCIS:simulator" ucisVersion="1.0" vendorId="unknown" vendorTool="unknown" vendorToolVersion="unknown"/>
+  <instanceCoverages name="cg_inst" key="0" instanceId="0" moduleName="du">
+    <id file="1" line="1" inlineCount="1"/>
+    <covergroupCoverage>
+      <cgInstance name="uvm_test_top.marb_tb_env.apb_agent.coverage.cg_trans_kind" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_trans_kind" moduleName="covergroup_trans_kind">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="trans_op" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="RD" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="WR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="trans_slverr" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="NO_ERROR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="ERROR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="trans_addr" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="trans_addr[0]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[1]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[2]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[3]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[4]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[5]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[6]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_addr[7]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <cross name="cross_op_addr" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>trans_op</crossExpr>
+          <crossExpr>trans_addr</crossExpr>
+          <crossBin name="&lt;RD,trans_addr[0]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[1]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[2]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[3]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[4]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[5]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[6]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,trans_addr[7]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[0]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[1]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[2]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[3]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[4]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[5]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[6]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,trans_addr[7]&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+        <cross name="cross_op_slverr" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>trans_op</crossExpr>
+          <crossExpr>trans_slverr</crossExpr>
+          <crossBin name="&lt;RD,NO_ERROR&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,ERROR&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,NO_ERROR&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;WR,ERROR&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+      </cgInstance>
+    </covergroupCoverage>
+    <covergroupCoverage>
+      <cgInstance name="uvm_test_top.marb_tb_env.apb_agent.coverage.cg_trans_data" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_trans_data" moduleName="covergroup_trans_data">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="trans_bitno" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="trans_bitno[0]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[1]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[2]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[3]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[4]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[5]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[6]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[7]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[8]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[9]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[10]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[11]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[12]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[13]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[14]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[15]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[16]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[17]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[18]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[19]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[20]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[21]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[22]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[23]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[24]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[25]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[26]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[27]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[28]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[29]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[30]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="trans_bitno[31]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="trans_data" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="ZERO" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="155"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="ONE" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="5"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="trans_data_type" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="RD" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="WR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="160"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <cross name="cross_data_bits_type" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>trans_bitno</crossExpr>
+          <crossExpr>trans_data_type</crossExpr>
+          <crossExpr>trans_data</crossExpr>
+          <crossBin name="&lt;trans_bitno[0],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[0],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[0],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="3"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[0],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="2"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[1],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[1],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[1],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="3"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[1],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="2"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[2],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[2],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[2],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[2],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[3],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[3],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[3],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[3],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[4],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[4],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[4],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="4"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[4],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="1"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[5],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[5],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[5],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[5],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[6],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[6],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[6],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[6],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[7],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[7],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[7],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[7],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[8],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[8],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[8],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[8],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[9],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[9],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[9],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[9],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[10],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[10],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[10],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[10],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[11],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[11],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[11],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[11],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[12],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[12],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[12],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[12],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[13],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[13],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[13],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[13],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[14],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[14],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[14],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[14],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[15],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[15],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[15],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[15],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[16],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[16],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[16],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[16],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[17],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[17],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[17],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[17],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[18],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[18],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[18],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[18],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[19],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[19],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[19],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[19],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[20],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[20],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[20],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[20],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[21],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[21],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[21],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[21],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[22],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[22],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[22],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[22],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[23],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[23],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[23],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[23],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[24],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[24],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[24],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[24],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[25],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[25],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[25],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[25],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[26],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[26],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[26],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[26],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[27],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[27],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[27],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[27],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[28],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[28],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[28],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[28],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[29],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[29],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[29],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[29],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[30],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[30],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[30],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[30],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[31],RD,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[31],RD,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[31],WR,ZERO&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="5"/>
+          </crossBin>
+          <crossBin name="&lt;trans_bitno[31],WR,ONE&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+      </cgInstance>
+    </covergroupCoverage>
+    <covergroupCoverage>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_prod0_agent.coverage.cg_fulltrans" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_fulltrans" moduleName="covergroup_fulltrans">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="fulltrans_access" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="RD" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="WR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_addr" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_data" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <cross name="fulltrans_cross" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>fulltrans_access</crossExpr>
+          <crossExpr>fulltrans_addr</crossExpr>
+          <crossExpr>fulltrans_data</crossExpr>
+          <crossBin name="&lt;RD,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="2"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+      </cgInstance>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_prod1_agent.coverage.cg_fulltrans" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_fulltrans" moduleName="covergroup_fulltrans">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="fulltrans_access" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="RD" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="WR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_addr" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_data" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <cross name="fulltrans_cross" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>fulltrans_access</crossExpr>
+          <crossExpr>fulltrans_addr</crossExpr>
+          <crossExpr>fulltrans_data</crossExpr>
+          <crossBin name="&lt;RD,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="2"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+      </cgInstance>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_prod2_agent.coverage.cg_fulltrans" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_fulltrans" moduleName="covergroup_fulltrans">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="fulltrans_access" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="RD" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="WR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_addr" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_data" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <cross name="fulltrans_cross" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>fulltrans_access</crossExpr>
+          <crossExpr>fulltrans_addr</crossExpr>
+          <crossExpr>fulltrans_data</crossExpr>
+          <crossBin name="&lt;RD,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="2"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+      </cgInstance>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_cons_agent.coverage.cg_fulltrans" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_fulltrans" moduleName="covergroup_fulltrans">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="fulltrans_access" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="RD" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="WR" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="6"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_addr" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="6"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <coverpoint name="fulltrans_data" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="low" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="6"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="med" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="high" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+        <cross name="fulltrans_cross" key="0">
+          <options weight="1" goal="100" at_least="1"/>
+          <crossExpr>fulltrans_access</crossExpr>
+          <crossExpr>fulltrans_addr</crossExpr>
+          <crossExpr>fulltrans_data</crossExpr>
+          <crossBin name="&lt;RD,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;RD,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="6"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,low,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,med,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,low&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,med&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+          <crossBin name="&lt;WR,high,high&gt;" key="0" type="default">
+            <index>-1</index>
+            <contents coverageCount="0"/>
+          </crossBin>
+        </cross>
+      </cgInstance>
+    </covergroupCoverage>
+    <covergroupCoverage>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_prod0_agent.coverage.cg_delays" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_delays" moduleName="covergroup_delays">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="consumer_delay_rdwr1_ack1" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="0" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[1,5]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[6,15]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="&gt;15" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+      </cgInstance>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_prod1_agent.coverage.cg_delays" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_delays" moduleName="covergroup_delays">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="consumer_delay_rdwr1_ack1" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="0" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[1,5]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[6,15]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="&gt;15" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+      </cgInstance>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_prod2_agent.coverage.cg_delays" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_delays" moduleName="covergroup_delays">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="consumer_delay_rdwr1_ack1" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="0" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[1,5]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[6,15]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="2"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="&gt;15" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+      </cgInstance>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_sdt_cons_agent.coverage.cg_delays" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_delays" moduleName="covergroup_delays">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="consumer_delay_rdwr1_ack1" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="0" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[1,5]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="6"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="[6,15]" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="&gt;15" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+      </cgInstance>
+    </covergroupCoverage>
+    <covergroupCoverage>
+      <cgInstance name="uvm_test_top.marb_tb_env.uvc_ssdt_agent.coverage.cg_ssdt" key="0">
+        <options weight="1" goal="100" at_least="1" per_instance="true" merge_instances="true"/>
+        <cgId cgName="covergroup_ssdt" moduleName="covergroup_ssdt">
+          <cginstSourceId file="1" line="1" inlineCount="1"/>
+          <cgSourceId file="1" line="1" inlineCount="1"/>
+        </cgId>
+        <coverpoint name="cp_data" key="0">
+          <options weight="1" goal="100" at_least="1" auto_bin_max="64" detect_overlap="false"/>
+          <coverpointBin name="data_0" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="data_max" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="0"/>
+            </range>
+          </coverpointBin>
+          <coverpointBin name="data_others" type="bins" key="0">
+            <range from="-1" to="-1">
+              <contents coverageCount="6"/>
+            </range>
+          </coverpointBin>
+        </coverpoint>
+      </cgInstance>
+    </covergroupCoverage>
+  </instanceCoverages>
+</UCIS>
