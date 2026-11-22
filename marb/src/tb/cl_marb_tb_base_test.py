@@ -16,7 +16,6 @@ from uvc import apb
 from uvc.apb import cl_apb_interface
 from uvc.sdt import cl_sdt_interface
 from uvc.ssdt import cl_ssdt_interface
-from cl_marb_tb_basic_seq import cl_marb_tb_basic_seq
 
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 

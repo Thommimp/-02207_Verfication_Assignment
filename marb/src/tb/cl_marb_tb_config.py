@@ -1,7 +1,8 @@
-from pyuvm import uvm_object
+from pyuvm import uvm_object, uvm_active_passive_enum
 
 from uvc.apb import cl_apb_config
 from uvc.sdt import cl_sdt_config, DriverType
+from uvc.ssdt import cl_ssdt_config
 
 class cl_marb_tb_config(uvm_object):
     def __init__(self, name = "cl_marb_tb_config"):

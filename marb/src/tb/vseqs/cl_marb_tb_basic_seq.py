@@ -8,48 +8,39 @@ from cl_marb_tb_base_seq import cl_marb_tb_base_seq
 
 
 class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
+
     async def body(self):
+        await self.run_static()
+        await self.run_dynamic()
+
+    async def run_dynamic(self):
         clk = self.sequencer.cfg.sdt_cons_cfg.vif.clk
 
-        # Disable arbitration while preparing the requests.
-        await self.sequencer.write_ctrl_reg(
-            enabled=False,
-            mode=MarbMode.DYNAMIC,
-        )
-
-        # Highest number has highest priority.
-        await self.sequencer.write_dprio_reg(
-            prio0=0x10,
-            prio1=0xFF,
-            prio2=0xFD,
-        )
-
-        # Allow the priority sorter to finish.
-        await ClockCycles(
-            clk,
-            self.sequencer.cfg.dprio_reg_write_delay,
-        )
+        await self.configure_dynamic(prio0=0x10, prio1=0xFF, prio2=0xFD)
 
         # Producer 0 writes 0x11 to address 0x10.
-        prod0_seq = cl_sdt_single_zd_seq("prod0_seq")
-        prod0_seq.randomize()
-        prod0_seq.s_item.access = AccessType.WR
-        prod0_seq.s_item.addr = 0x10
-        prod0_seq.s_item.data = 0x11
+        self.setup_prod_seq(
+            name="prod0_seq",
+            access=AccessType.WR,
+            addr=0x10,
+            data=0x11
+        )
 
         # Producer 1 writes 0x22 to address 0x20.
-        prod1_seq = cl_sdt_single_zd_seq("prod1_seq")
-        prod1_seq.randomize()
-        prod1_seq.s_item.access = AccessType.WR
-        prod1_seq.s_item.addr = 0x20
-        prod1_seq.s_item.data = 0x22
+        self.setup_prod_seq(
+            name="prod1_seq",
+            access=AccessType.WR,
+            addr=0x20,
+            data=0x22
+        )
 
         # Producer 2 writes 0x33 to address 0x30.
-        prod2_seq = cl_sdt_single_zd_seq("prod2_seq")
-        prod2_seq.randomize()
-        prod2_seq.s_item.access = AccessType.WR
-        prod2_seq.s_item.addr = 0x30
-        prod2_seq.s_item.data = 0x33
+        self.setup_prod_seq(
+            name="prod2_seq",
+            access=AccessType.WR,
+            addr=0x30,
+            data=0x33
+        )
 
         # Consumer responds to one request per sequence start.
         cons_seq = cl_sdt_single_zd_seq("cons_seq")
@@ -91,7 +82,7 @@ class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
             mode=MarbMode.DYNAMIC,
         )
 
-        # Producer 1 should be serviced first, priority 30.
+        # Producer 1 should be serviced first, priority FF.
         await with_timeout(cons_task, 10, "us")
         rsp = await cons_seq.get_response()
 
@@ -99,7 +90,7 @@ class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
         assert int(rsp.addr) == 0x20, "Expected producer 1 first"
         assert int(rsp.data) == 0x22
 
-        # Producer 2 should be serviced second, priority 20.
+        # Producer 2 should be serviced second, priority FD.
         await with_timeout(
             cons_seq.start(
                 self.sequencer.sdt_cons_agent_sequencer
