@@ -95,7 +95,7 @@ endif
 # Simulation targets
 # ------------------------------------------------------------------------------
 
-# run test by name, e.g. make cl_marb_basic_test
+# run test by name, e.g. make cl_marb_tbs_basic_test
 %: tests/%.py
 	$(MAKE) COCOTB_TEST_MODULES=$(TEST_DIR).$@ WAVES=1
 
