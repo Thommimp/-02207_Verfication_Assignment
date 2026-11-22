@@ -15,6 +15,8 @@ class cl_marb_tb_config(uvm_object):
 
         self.sdt_cons_cfg = cl_sdt_config.create("sdt_cons_cfg")
 
+        self.ssdt_cfg = cl_ssdt_config.create("ssdt_cfg")
+
         # Configure Producer 0
         self.sdt_prod0_cfg.driver = DriverType.PRODUCER
         self.sdt_prod0_cfg.ADDR_WIDTH = 8
@@ -35,6 +37,9 @@ class cl_marb_tb_config(uvm_object):
         self.sdt_cons_cfg.ADDR_WIDTH = 8
         self.sdt_cons_cfg.DATA_WIDTH = 8
 
+        # Configure sSDT
+        self.ssdt_cfg.is_active  = uvm_active_passive_enum.UVM_PASSIVE # Because won't be driven by the DUT, only monitored
+        self.ssdt_cfg.DATA_WIDTH = 8
 
         # Delay to avoid a hazard when updating the dynamic priority
         self.dprio_reg_write_delay = 6

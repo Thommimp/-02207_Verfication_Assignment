@@ -4,9 +4,10 @@ from pyuvm import uvm_sequence
 
 from cl_marb_common import MarbMode
 from uvc.sdt import AccessType, cl_sdt_single_zd_seq
+from cl_marb_tb_base_seq import cl_marb_tb_base_seq
 
 
-class cl_marb_tb_basic_seq(uvm_sequence):
+class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
     async def body(self):
         clk = self.sequencer.cfg.sdt_cons_cfg.vif.clk
 

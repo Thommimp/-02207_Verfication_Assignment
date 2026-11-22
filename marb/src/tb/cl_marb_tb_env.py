@@ -6,6 +6,7 @@ from cl_marb_tb_reg_model import cl_marb_tb_reg_model
 from cl_marb_tb_virtual_sequencer import cl_marb_tb_virtual_sequencer
 from uvc.apb import cl_apb_agent, if_apb_assert_check
 from uvc.sdt import cl_sdt_agent
+from uvc.ssdt import cl_ssdt_agent
 
 
 class cl_marb_tb_env(uvm_env):
@@ -33,10 +34,10 @@ class cl_marb_tb_env(uvm_env):
         
         self.cons_rd_data_queue = None
         self.cons_wr_data_queue = None
-        
-
 
         self.uvc_sdt_cons = None
+        self.uvc_ssdt = None
+
         self.apb_agent = None
 
     def build_phase(self):
@@ -153,7 +154,7 @@ class cl_marb_tb_env(uvm_env):
             value=self.prod2_wr_data_queue,
         )
 
-        # --- sdt consumer ---
+        # sdt consumer
         self.cons_rd_data_queue = Queue()
         self.cons_wr_data_queue = Queue()
         self.uvc_sdt_cons = cl_sdt_agent.create("uvc_sdt_cons_agent", self)
@@ -177,6 +178,15 @@ class cl_marb_tb_env(uvm_env):
             inst_name = "uvc_sdt_cons_agent.driver",
             field_name = "wr_data_queue",
             value = self.cons_wr_data_queue, 
+        )
+
+        # ssdt - crc
+        self.uvc_ssdt = cl_ssdt_agent.create("uvc_ssdt_agent", self)
+        ConfigDB().set(
+            context    = self,
+            inst_name  = "uvc_ssdt_agent",
+            field_name = "cfg",
+            value      = self.cfg.ssdt_cfg,
         )
 
         # Assertions checkers

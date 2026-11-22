@@ -15,7 +15,9 @@ from cl_marb_tb_env import cl_marb_tb_env
 from uvc import apb
 from uvc.apb import cl_apb_interface
 from uvc.sdt import cl_sdt_interface
+from uvc.ssdt import cl_ssdt_interface
 from cl_marb_tb_basic_seq import cl_marb_tb_basic_seq
+
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
 @pyuvm.test()
@@ -118,12 +120,21 @@ class cl_marb_tb_base_test(uvm_test):
             name="sdt_cons_if"
         )
 
+        # sdt interface
+        self.ssdt_cons_if = cl_ssdt_interface(
+            clk_signal=self.dut.clk,
+            rst_signal=self.dut.rst,
+            name="ssdt_cons_if",
+        )
+
         # assign virtual interface to sdts
         self.cfg.sdt_prod0_cfg.vif = self.sdt_prod0_if
         self.cfg.sdt_prod1_cfg.vif = self.sdt_prod1_if
         self.cfg.sdt_prod2_cfg.vif = self.sdt_prod2_if
 
         self.cfg.sdt_cons_cfg.vif = self.sdt_cons_if
+
+        self.cfg.ssdt_cfg.vif = self.ssdt_cons_if
 
         # Set widths for sdts
         self.sdt_prod0_if.set_width_values(
@@ -198,6 +209,11 @@ class cl_marb_tb_base_test(uvm_test):
             ack_signal=self.dut.m_ack,
         )
 
+        self.ssdt_cons_if.connect(
+            valid_signal=self.dut.crc_valid,
+            data_signal=self.dut.crc_data,
+        )
+
         self.apb_if.connect(
             wr_signal     = self.dut.conf_wr,
             sel_signal    = self.dut.conf_sel,
@@ -213,8 +229,6 @@ class cl_marb_tb_base_test(uvm_test):
         self.logger.info("End connect_phase() -> MARB base test")
 
     async def run_phase(self):
-        self.raise_objection()
-
         self.logger.info("Start run_phase() -> MARB base test")
         await super().run_phase()
 
@@ -223,12 +237,7 @@ class cl_marb_tb_base_test(uvm_test):
         await self.trigger_reset()
         #await ClockCycles(self.dut.clk, 10)
 
-
-        # Start SDT IF assertions chekers for producers and consumer
-        self.virtual_sequence = cl_marb_tb_basic_seq.create(name="cl_mark_tb_base_test")
-        await self.virtual_sequence.start(seqr=self.marb_tb_env.virtual_sequencer)
         self.logger.info("End run_phase() -> MARB base test")
-        self.drop_objection()
 
     async def start_clock(self):
         self.clk_period = randint(1, 5)
