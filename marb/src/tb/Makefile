@@ -114,7 +114,7 @@ export VSC_CAPTURE_SRCINFO = 0
 export VSC_DEBUG = 0
 
 THE_SIM_BUILD = $(TB_DIR)/$(SIM_BUILD)
-COV_FILES = $(shell find $(THE_SIM_BUILD) -type f \( -iname "*_cov.xml" \))
+COV_FILES = $(shell find $(THE_SIM_BUILD) -type f \( -iname "*_cov.xml" ! -iname "merge_cov.xml" \))
 
 # https://pyucis.readthedocs.io/en/latest/commands.html
 .PHONY: coverage-merge
@@ -126,7 +126,7 @@ coverage-merge:
 	@echo $(COV_FILES)
 	@echo "======================================================"
 	@echo ""
-	@$(VIRTUAL_ENV)/bin/pyucis merge --out $(THE_SIM_BUILD)/merge_cov.xml $(THE_SIM_BUILD)/*_cov.xml
+	@$(VIRTUAL_ENV)/bin/pyucis merge --out $(THE_SIM_BUILD)/merge_cov.xml $(COV_FILES)
 
 .PHONY: coverage-view
 coverage-view: coverage-merge

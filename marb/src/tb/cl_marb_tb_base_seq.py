@@ -3,6 +3,7 @@ from cocotb.triggers import ClockCycles, with_timeout
 from pyuvm import uvm_sequence
 
 from cl_marb_common import MarbMode
+from cl_marb_tb_coverage import covergroup_register
 from uvc.sdt import cl_sdt_single_zd_seq
 
 
@@ -10,7 +11,9 @@ class cl_marb_tb_base_seq(uvm_sequence):
 
     def __init__(self, name="cl_marb_tb_base_seq"):
         super().__init__(name)
-        self.reg_cg = None
+        self.register_covergroup = covergroup_register(
+            "uvm_test_top.marb_tb_env.register_coverage"
+        )
 
     # register config helper
     async def configure_dynamic(self, prio0, prio1, prio2):
@@ -38,7 +41,12 @@ class cl_marb_tb_base_seq(uvm_sequence):
         return rsp, rd_value
 
     # coverage
-    def sample_reg_coverage(self):
+    def sample_register_coverage(self):
         rm = self.sequencer.reg_model
-        # self.reg_cg.sample(rm.enable, rm.mode, rm.prio0, rm.prio1, rm.prio2)
-        pass
+        self.register_covergroup.sample(
+            int(rm.enable) if rm.enable is not None else 0,
+            int(rm.mode) if rm.mode is not None else 0,
+            int(rm.prio0) if rm.prio0 is not None else 0,
+            int(rm.prio1) if rm.prio1 is not None else 0,
+            int(rm.prio2) if rm.prio2 is not None else 0,
+        )

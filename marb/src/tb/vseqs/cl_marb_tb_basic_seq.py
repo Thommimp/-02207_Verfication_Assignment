@@ -131,6 +131,7 @@ class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
         await prod0_seq.get_response()
         await prod1_seq.get_response()
         await prod2_seq.get_response()
+        self.sample_register_coverage()
 
         self.sequencer.logger.info(
             "Static priority write test passed"
@@ -251,6 +252,7 @@ class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
         await prod0_seq.get_response()
         await prod1_seq.get_response()
         await prod2_seq.get_response()
+        self.sample_register_coverage()
 
         self.sequencer.logger.info(
             "Dynamic priority write test passed"
