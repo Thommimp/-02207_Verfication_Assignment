@@ -25,8 +25,21 @@ class cl_marb_tb_random_test(cl_marb_tb_base_test):
         self.raise_objection()
         await super().run_phase()
 
-        await self.virtual_sequence.start(
-            seqr=self.marb_tb_env.virtual_sequencer
+        producer_responses = []
+        for iteration in range(500):
+            virtual_sequence = cl_marb_tb_base_seq.create(
+                name=f"cl_marb_tb_random_sequence_{iteration}"
+            )
+            await virtual_sequence.start(
+                seqr=self.marb_tb_env.virtual_sequencer
+            )
+            producer_responses.extend(virtual_sequence.producer_responses)
+            self.logger.info(
+                f"Completed randomized virtual sequence iteration {iteration + 1}/500"
+            )
+
+        render_histogram(
+            producer_responses,
+            "cl_marb_tb_random_histogram.pdf",
         )
-        render_histogram(self.virtual_sequence.producer_responses, "cl_marb_tb_random_histogram.pdf")
         self.drop_objection()
