@@ -1,6 +1,6 @@
 import cocotb
 import vsc
-from cocotb.triggers import ClockCycles, Combine, with_timeout
+from cocotb.triggers import ClockCycles, Combine, ReadOnly, RisingEdge, with_timeout
 
 from cl_marb_common import MarbMode
 from cl_marb_tb_base_seq import cl_marb_tb_base_seq
@@ -130,6 +130,15 @@ class cl_marb_tb_random_seq(cl_marb_tb_base_seq):
         cons_sequences = []
         responses = []
         for _ in range(3):
+            while True:
+                # This block is added because we were getting issues where the consumer seq was running,
+                # even when no producer had created a request in that clock cycle. This scenario comes in
+                # because of the random delays added between producer requests.
+                await RisingEdge(clk)
+                await ReadOnly()
+                if str(cocotb.top.m_wr.value) == "1" or str(cocotb.top.m_rd.value) == "1":
+                    break
+
             cons_seq = cl_sdt_single_zd_seq("cons_random_seq")
             cons_seq.randomize()
             cons_sequences.append(cons_seq)
