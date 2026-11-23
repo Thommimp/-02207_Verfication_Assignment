@@ -24,8 +24,9 @@ class cl_marb_tb_random_test(cl_marb_tb_base_test):
     async def run_phase(self):
         self.raise_objection()
         await super().run_phase()
-        # Start the virtual sequence on the virtual sequencer
-        self.virtual_sequence.randomize()
-        await self.virtual_sequence.start(seqr=self.tb_env.virtual_sequencer)
+
+        await self.virtual_sequence.start(
+            seqr=self.marb_tb_env.virtual_sequencer
+        )
         render_histogram(self.virtual_sequence.producer_responses, "cl_marb_tb_random_histogram.pdf")
         self.drop_objection()

@@ -66,6 +66,7 @@ class cl_marb_tb_random_seq(cl_marb_tb_base_seq):
     def __init__(self, name="cl_marb_tb_random_seq"):
         super().__init__(name)
         self.random_config = cl_marb_random_config()
+        self.producer_responses = []
 
     async def body(self):
         self.random_config.randomize()
@@ -138,7 +139,9 @@ class cl_marb_tb_random_seq(cl_marb_tb_base_seq):
                 )
             )
             await with_timeout(cons_task, 10, "us")
-            responses.append(await cons_seq.get_response())
+            rsp = await cons_seq.get_response()
+            responses.append(rsp)
+            self.producer_responses.append(int(rsp.data))
 
         await with_timeout(
             Combine(*producer_tasks),

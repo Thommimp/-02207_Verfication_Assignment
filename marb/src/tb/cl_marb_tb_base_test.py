@@ -17,6 +17,8 @@ from uvc.apb import cl_apb_interface
 from uvc.sdt import cl_sdt_interface
 from uvc.ssdt import cl_ssdt_interface
 
+from cl_marb_tb_base_seq import cl_marb_tb_base_seq
+
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
 @pyuvm.test()
@@ -234,7 +236,9 @@ class cl_marb_tb_base_test(uvm_test):
         await self.start_clock()
         self.logger.info("clock started")
         await self.trigger_reset()
-        #await ClockCycles(self.dut.clk, 10)
+        
+        # Assign virtual sequence
+        self.virtual_sequence = cl_marb_tb_base_seq.create(name="cl_mark_tb_base_seq")
 
         self.logger.info("End run_phase() -> MARB base test")
 
