@@ -46,3 +46,22 @@ class if_sdt_assert_check:
                 self.passed = False
                 print(msg)
 
+    #PR3 When wr is asserted, then wr_data must not be X
+    async def write_data_validity_requirement(self):
+        while True:
+            await RisingEdge(self.vif.clk)
+            await ReadOnly()
+
+            try: 
+                if (self.vif.wr.value == 1):
+                    assert(self.vif.data.value.is_resolvable,
+                           f"When wr is high data was {self.vif.data.value}")
+            except AssertionError as msg:
+                self.passed = False
+                print(msg)
+
+    #(PR4): when ack is asserted either wr or rd has to be high.
+    async def ack_validity_requirement(self):
+        while True:
+            await RisingEdge(self.vif.clk)
+            await ReadOnly()
