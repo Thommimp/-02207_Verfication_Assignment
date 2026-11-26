@@ -20,6 +20,7 @@ from uvc.ssdt import cl_ssdt_interface
 from cl_marb_tb_base_seq import cl_marb_tb_base_seq
 
 from sdt_if_assertions import if_sdt_assert_check
+from uvc.ssdt.ssdt_if_assertions import if_ssdt_assert_check
 
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
@@ -63,10 +64,14 @@ class cl_marb_tb_base_test(uvm_test):
         self.sdt_cons_if = None
 
         #checkers
-        self.producer0_assert_check = None
-        self.producer1_assert_check = None
-        self.producer2_assert_check = None
-        self.consumer_assert_check = None
+        self.producer0_assert_check_sdt = None
+        self.producer1_assert_check_sdt = None
+        self.producer2_assert_check_sdt = None
+        self.consumer_assert_check_sdt = None
+        
+        
+        self.consumer_assert_check_ssdt = None
+
         # Quick fix because of warnings og PYVSC
         warnings.simplefilter("ignore")
 
@@ -177,18 +182,24 @@ class cl_marb_tb_base_test(uvm_test):
             parent = self,
         )
 
-        self.producer0_assert_check = if_sdt_assert_check(
+        self.producer0_assert_check_sdt = if_sdt_assert_check(
             vif = self.sdt_prod0_if,
         )
-        self.producer1_assert_check = if_sdt_assert_check(
+        self.producer1_assert_check_sdt = if_sdt_assert_check(
             vif = self.sdt_prod1_if,
         )
-        self.producer2_assert_check = if_sdt_assert_check(
+        self.producer2_assert_check_sdt = if_sdt_assert_check(
             vif = self.sdt_prod2_if,
         )
  
-        self.consumer_assert_check = if_sdt_assert_check(
+        self.consumer_assert_check_sdt = if_sdt_assert_check(
             vif = self.sdt_cons_if,
+        )
+
+
+ 
+        self.consumer_assert_check_ssdt = if_ssdt_assert_check(
+            vif = self.ssdt_cons_if,
         )
         self.logger.info("End build_phase() -> MARB base test")
 
@@ -251,11 +262,13 @@ class cl_marb_tb_base_test(uvm_test):
     async def run_phase(self):
         self.logger.info("Start run_phase() -> MARB base test")
         await super().run_phase()
-        self.producer0_assert_check.check_assertions()
-        self.producer1_assert_check.check_assertions()
-        self.producer2_assert_check.check_assertions()
+        self.producer0_assert_check_sdt.check_assertions()
+        self.producer1_assert_check_sdt.check_assertions()
+        self.producer2_assert_check_sdt.check_assertions()
 
-        self.consumer_assert_check.check_assertions()
+        self.consumer_assert_check_sdt.check_assertions()
+        
+        self.consumer_assert_check_ssdt.check_assertions()
 
         await self.start_clock()
         self.logger.info("clock started")
@@ -293,11 +306,15 @@ class cl_marb_tb_base_test(uvm_test):
         self.logger.info("Start report_phase() -> MARB base test")
         super().report_phase()
          # Check if the assertions failed
-        assert self.producer0_assert_check.passed, "producer0's assertions failed"
-        assert self.producer1_assert_check.passed, "producer1's assertions failed"
-        assert self.producer2_assert_check.passed, "producer2's assertions failed"
+        assert self.producer0_assert_check_sdt.passed, "producer0's sdt assertions failed"
+        assert self.producer1_assert_check_sdt.passed, "producer1's sdt assertions failed"
+        assert self.producer2_assert_check_sdt.passed, "producer2's sdt assertions failed"
 
-        assert self.consumer_assert_check.passed, "consumer's assertions failed"
+        assert self.consumer_assert_check_sdt.passed, "consumer's sdt assertions failed"
+       
+
+        assert self.consumer_assert_check_ssdt.passed, "consumer's ssdt assertions failed"
+
         # Creating coverage report with PyVSC in txt format
         try:
             test_number = cocotb.plusargs["test_number"]
