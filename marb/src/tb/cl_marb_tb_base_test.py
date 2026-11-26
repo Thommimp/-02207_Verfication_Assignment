@@ -19,6 +19,8 @@ from uvc.ssdt import cl_ssdt_interface
 
 from cl_marb_tb_base_seq import cl_marb_tb_base_seq
 
+from sdt_if_assertions import if_sdt_assert_check
+
 _LOG_LEVELS = ["DEBUG", "CRITICAL", "ERROR", "WARNING", "INFO", "NOTSET", "NullHandler"]
 
 @pyuvm.test()
@@ -60,6 +62,11 @@ class cl_marb_tb_base_test(uvm_test):
 
         self.sdt_cons_if = None
 
+        #checkers
+        self.producer0_assert_check = None
+        self.producer1_assert_check = None
+        self.producer2_assert_check = None
+        self.consumer_assert_check = None
         # Quick fix because of warnings og PYVSC
         warnings.simplefilter("ignore")
 
@@ -170,7 +177,19 @@ class cl_marb_tb_base_test(uvm_test):
             parent = self,
         )
 
-
+        self.producer0_assert_check = if_sdt_assert_check(
+            vif = self.sdt_prod0_if,
+        )
+        self.producer1_assert_check = if_sdt_assert_check(
+            vif = self.sdt_prod0_if,
+        )
+        self.producer2_assert_check = if_sdt_assert_check(
+            vif = self.sdt_prod0_if,
+        )
+ 
+        self.consumer_assert_check = if_sdt_assert_check(
+            vif = self.sdt_cons_if,
+        )
         self.logger.info("End build_phase() -> MARB base test")
 
     def connect_phase(self):
@@ -232,6 +251,11 @@ class cl_marb_tb_base_test(uvm_test):
     async def run_phase(self):
         self.logger.info("Start run_phase() -> MARB base test")
         await super().run_phase()
+        self.producer0_assert_check.check_assertions()
+        self.producer1_assert_check.check_assertions()
+        self.producer2_assert_check.check_assertions()
+
+        self.consumer_assert_check.check_assertions()
 
         await self.start_clock()
         self.logger.info("clock started")

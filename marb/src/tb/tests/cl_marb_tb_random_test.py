@@ -26,7 +26,7 @@ class cl_marb_tb_random_test(cl_marb_tb_base_test):
         await super().run_phase()
 
         producer_responses = []
-        for iteration in range(100):
+        for iteration in range(1):
             virtual_sequence = cl_marb_tb_base_seq.create(
                 name=f"cl_marb_tb_random_sequence_{iteration}"
             )

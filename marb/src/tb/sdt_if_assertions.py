@@ -19,6 +19,9 @@ class if_sdt_assert_check:
     def check_assertions(self):
         cocotb.start_soon(self.single_request_requirement())
         cocotb.start_soon(self.address_validity_requirement())
+        cocotb.start_soon(self.write_data_validity_requirement())
+        cocotb.start_soon(self.ack_validity_requirement())
+        cocotb.start_soon(self.read_data_validity_requirement())
 
     #PR1 Asserting rd and wr at the same time is illegal
     async def single_request_requirement(self):
@@ -54,8 +57,8 @@ class if_sdt_assert_check:
 
             try: 
                 if (self.vif.wr.value == 1):
-                    assert(self.vif.data.value.is_resolvable,
-                           f"When wr is high data was {self.vif.data.value}")
+                    assert(self.vif.wr_data.value.is_resolvable,
+                           f"When wr is high data was {self.vif.wr_data.value}")
             except AssertionError as msg:
                 self.passed = False
                 print(msg)
@@ -65,3 +68,25 @@ class if_sdt_assert_check:
         while True:
             await RisingEdge(self.vif.clk)
             await ReadOnly()
+
+            try: 
+                if (self.vif.ack.value == 1):
+                    assert(self.vif.wr.value == 1 or self.vif.rd.value == 1,
+                    f"When ack is high wr was {self.vif.wr.value} and rd was {self.vif.rd.value}")
+            except AssertionError as msg:
+                self.passed = False
+                print(msg)
+    #(PR5): rd_data must be valid while ack is high during a read request (rd is high)
+    async def read_data_validity_requirement(self):
+        while True:
+            await RisingEdge(self.vif.clk)
+            await ReadOnly()
+
+            try:
+                if (self.vif.rd.value == 1 and self.vif.ack.value == 1):
+                    assert(self.vif.rd_data.value.is_resolvable,
+                        f"ack and rd is high and rd_data had the value {self.vif.rd_data.value}")
+                
+            except AssertionError as msg:
+                self.passed = False
+                print(msg)
