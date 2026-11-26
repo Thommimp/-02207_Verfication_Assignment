@@ -181,10 +181,10 @@ class cl_marb_tb_base_test(uvm_test):
             vif = self.sdt_prod0_if,
         )
         self.producer1_assert_check = if_sdt_assert_check(
-            vif = self.sdt_prod0_if,
+            vif = self.sdt_prod1_if,
         )
         self.producer2_assert_check = if_sdt_assert_check(
-            vif = self.sdt_prod0_if,
+            vif = self.sdt_prod2_if,
         )
  
         self.consumer_assert_check = if_sdt_assert_check(
@@ -292,7 +292,12 @@ class cl_marb_tb_base_test(uvm_test):
     def report_phase(self):
         self.logger.info("Start report_phase() -> MARB base test")
         super().report_phase()
+         # Check if the assertions failed
+        assert self.producer0_assert_check.passed, "producer0's assertions failed"
+        assert self.producer1_assert_check.passed, "producer1's assertions failed"
+        assert self.producer2_assert_check.passed, "producer2's assertions failed"
 
+        assert self.consumer_assert_check.passed, "consumer's assertions failed"
         # Creating coverage report with PyVSC in txt format
         try:
             test_number = cocotb.plusargs["test_number"]

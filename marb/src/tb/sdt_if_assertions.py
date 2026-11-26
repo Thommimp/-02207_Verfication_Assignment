@@ -35,6 +35,7 @@ class if_sdt_assert_check:
             except AssertionError as msg:
                 self.passed = False
                 print(msg)
+                
     #PR2 When rd or wr is asserted, then addr must not be X.
     async def address_validity_requirement(self):
         while True:
