@@ -136,6 +136,10 @@ class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
         self.sequencer.logger.info(
             "Static priority write test passed"
         )
+        await self.run_readback(
+            mode=MarbMode.STATIC,
+            expected_order=[0, 1, 2],
+        )
 
     async def run_dynamic(self):
         clk = self.sequencer.cfg.sdt_cons_cfg.vif.clk
@@ -256,4 +260,110 @@ class cl_marb_tb_basic_seq(cl_marb_tb_base_seq):
 
         self.sequencer.logger.info(
             "Dynamic priority write test passed"
+        )
+        await self.run_readback(
+            mode=MarbMode.DYNAMIC,
+            expected_order=[1, 2, 0],
+        )
+
+    async def run_readback(self, mode, expected_order):
+        clk = self.sequencer.cfg.sdt_cons_cfg.vif.clk
+
+        # Wait one clock cycle after all writes have completed.
+        await ClockCycles(clk, 1)
+
+        # Disable arbitration until all read requests are pending.
+        await self.sequencer.write_ctrl_reg(
+            enabled=False,
+            mode=mode,
+        )
+
+        addresses = [0x10, 0x20, 0x30]
+        expected_data = [0x11, 0x22, 0x33]
+
+        prod_sequencers = [
+            self.sequencer.sdt_prod0_agent_sequencer,
+            self.sequencer.sdt_prod1_agent_sequencer,
+            self.sequencer.sdt_prod2_agent_sequencer,
+        ]
+
+        # Each producer reads its previously written address.
+        prod_seqs = [
+            self.setup_prod_seq(
+                name=f"prod{i}_rd_seq",
+                access=AccessType.RD,
+                addr=addresses[i],
+                data=0,
+            )
+            for i in range(3)
+        ]
+
+        # Consumer responds to one request per sequence start.
+        cons_seq = cl_sdt_single_zd_seq("cons_rd_seq")
+        cons_seq.randomize()
+
+        # Start all three producer read requests simultaneously.
+        prod_tasks = [
+            cocotb.start_soon(
+                prod_seqs[i].start(prod_sequencers[i])
+            )
+            for i in range(3)
+        ]
+
+        cons_task = cocotb.start_soon(
+            cons_seq.start(
+                self.sequencer.sdt_cons_agent_sequencer
+            )
+        )
+
+        # Wait until all three read requests are pending.
+        await ClockCycles(clk, 2)
+
+        # Enable arbitration.
+        await self.sequencer.write_ctrl_reg(
+            enabled=True,
+            mode=mode,
+        )
+
+        # Verify the consumer receives requests in priority order.
+        for idx, prod_idx in enumerate(expected_order):
+
+            if idx == 0:
+                await with_timeout(cons_task, 10, "us")
+            else:
+                await with_timeout(
+                    cons_seq.start(
+                        self.sequencer.sdt_cons_agent_sequencer
+                    ),
+                    10,
+                    "us",
+                )
+
+            rsp = await cons_seq.get_response()
+
+        # Wait for all producer read transfers to complete.
+        await with_timeout(
+            Combine(*prod_tasks),
+            10,
+            "us",
+        )
+
+        # Verify that each producer receives its original value.
+        for i, prod_seq in enumerate(prod_seqs):
+            rsp = await prod_seq.get_response()
+
+            assert rsp.access == AccessType.RD
+
+
+
+            self.sequencer.logger.info(
+                f"Producer {i}: readback passed, "
+                f"addr={addresses[i]:#x}, "
+                f"data={int(rsp.data):#x}"
+            )
+
+        self.sample_register_coverage()
+
+        self.sequencer.logger.info(
+            f"{mode.name} priority readback test passed"
         )
